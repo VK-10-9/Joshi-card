@@ -1,0 +1,23 @@
+class MyRunnable implements Runnable {
+    @Override
+    public void run() {
+        try {
+            // Simulate some work by sleeping for 500 milliseconds
+            Thread.sleep(500);
+            System.out.println("Thread: " + Thread.currentThread().getId() + " is running.");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+public class ThreadCretaionExample {
+	public static void main(String[] args) {
+        // Create multiple threads using the MyRunnable class
+        Thread thread1 = new Thread(new MyRunnable());
+        Thread thread2 = new Thread(new MyRunnable());
+
+        // Start each thread
+        thread1.start();
+        thread2.start();
+    }
+}
