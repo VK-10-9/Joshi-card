@@ -1,0 +1,35 @@
+class Outer
+{
+	String so=("ThisisOuterClass"); 
+	void display()
+	{
+		System.out.println(so);
+	}
+	void test()
+	{
+		Inner inner = new Inner(); 
+		inner.display();
+	}
+//thisisaninnerclass 
+	class Inner
+	{
+		String si=("ThisisinnerClass"); 
+		void display()
+		{ 
+			System.out.println(si);
+		}
+	}
+}
+
+public class InnerClassDemo {
+
+	public static void main(String[] args) 
+{	
+		Outer outer = new Outer();
+ outer.display();
+		outer.test();
+
+	}
+
+}
+
