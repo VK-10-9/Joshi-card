@@ -1,0 +1,58 @@
+class MyPoint
+{
+    int x, y;
+
+    MyPoint()
+    {
+        x = 0;
+        y = 0;
+    }
+    MyPoint(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+    void setXY(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+    int[] getXY()
+    {
+        return new int[] { x, y };
+    }
+    public String toString()
+    {
+        return "(" + x + ", " + y + ")";
+    }
+    double distance(int x, int y)
+    {
+        return Math.sqrt((this.x - x) * (this.x - x) + (this.y - y) * (this.y - y));
+    }
+    double distance(MyPoint another)
+    {
+        return Math.sqrt((this.x - another.x) * (this.x - another.x) +
+                (this.y - another.y) * (this.y - another.y));
+    }
+    double distance()
+    {
+        return Math.sqrt(x * x + y * y);
+    }
+}
+
+public class TestMyPoint
+{
+    public static void main(String[] args)
+    {
+        MyPoint p1 = new MyPoint();
+        MyPoint p2 = new MyPoint(3, 4);
+
+        System.out.println("p1 = " + p1);
+        System.out.println("p2 = " + p2);
+        p1.setXY(1, 2);
+        System.out.println("After setXY, p1 = " + p1);
+        System.out.println("Distance from p1 to p2 = " +p1.distance(p2));
+        System.out.println("Distance from p2 to (6,8) = " + p2.distance(6, 8));
+        System.out.println("Distance from p1 to origin = " + p1.distance());
+    }
+}
