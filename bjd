@@ -1,0 +1,123 @@
+5.	Develop a JAVA program to create a class named shape. Create three sub classes namely: circle, triangle and square, each class has two member functions named draw () and erase (). Demonstrate polymorphism concepts by developing suitable methods, defining member data and main program.
+class Shape
+{
+    // Member function to draw the shape. This line declares a method named draw. The void keyword specifies that this method does not return any value. This method is meant to perform an action related to the shape (in this case, drawing it).
+
+void draw()
+	{
+		System.out.println("Drawing a shape");
+    	}
+
+// This line of code uses the System.out.println function to print the message "Drawing a shape" to the console. It provides feedback to the user when this method is called.
+
+    // Member function to erase the shape
+    	void erase()
+    	{
+        		System.out.println("Erasing the shape");
+    	}
+}
+
+// Circle class, a subclass of Shape. This line declares a new class named Circle that extends the Shape class. This means that Circle is a subclass (or child class) of Shape, inheriting its properties and methods. The Circle class can also override methods from the Shape class.
+
+class Circle extends Shape 
+{
+    // Override draw method for circles. The @Override annotation tells the compiler that the following method is intended to override a method in the superclass (Shape). This helps catch errors if the method does not match a method signature in the parent class.
+
+    @Override
+    void draw() 
+
+// This line declares the draw method for the Circle class. It has the same name and signature as the draw method in the Shape class, allowing it to replace the behavior defined in Shape.
+
+    {
+        System.out.println("Drawing a circle");
+
+// This line prints the message "Drawing a circle" to the console. This overrides the original behavior in the Shape class, providing specific feedback for when a circle is drawn.
+
+    }
+
+    // Override erase method for circles
+    @Override
+    void erase()
+    {
+        System.out.println("Erasing the circle");
+
+// This line prints the message "Erasing the circle" to the console. This also overrides the behavior defined in the Shape class, providing specific feedback for when a circle is erased.
+
+    }
+}
+
+// Triangle class, a subclass of Shape
+class Triangle extends Shape
+{
+    // Override draw method for triangles
+    @Override
+    void draw()
+    {
+        System.out.println("Drawing a triangle");
+    }
+
+    // Override erase method for triangles
+    @Override
+    void erase() 
+    {
+        System.out.println("Erasing the triangle");
+    }
+}
+
+// Square class, a subclass of Shape
+class Square extends Shape 
+{
+    // Override draw method for squares
+    @Override
+    void draw() 
+    {
+        System.out.println("Drawing a square");
+    }
+
+    // Override erase method for squares
+    @Override
+    void erase() 
+    {
+        System.out.println("Erasing the square");
+    }
+}
+
+public class Polymorphism 
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Shape circle = new Circle();
+
+// This line creates an object of type Circle, which is a subclass of Shape. It assigns this object to a reference variable of type Shape. This demonstrates polymorphism because a Shape reference can point to a Circle object.
+
+        Shape triangle = new Triangle();
+        Shape square = new Square();
+
+        // Demonstrating polymorphism
+        // The draw and erase methods called depend on the actual type of the object at runtime
+        // This is polymorphism in action
+
+         drawAndErase(circle);
+
+//This line calls the drawAndErase method, passing the circle reference (which points to a Circle object). Inside drawAndErase, the overridden draw and erase methods in Circle will be invoked.
+
+        drawAndErase(triangle);
+        drawAndErase(square);
+    }
+
+    // A method that takes a Shape reference and calls its draw and erase methods. This line defines a private static method named drawAndErase, which takes a Shape reference as its parameter. Being private means it can only be accessed within the Polymorphism class.
+
+    private static void drawAndErase(Shape shape)
+
+//The parameter Shape shape means that this method accepts one argument of type Shape. Because of polymorphism, this parameter can refer to any object that is a subclass of Shape (like Circle, Triangle, or Square).
+    {
+        shape.draw();
+        shape.erase();
+
+	}
+
+}
+
+The drawAndErase method Demonstrating Polymorphism: The method takes a Shape reference, allowing it to accept any shape (like Circle, Triangle, or Square). When you call shape.draw() or shape.erase(), the actual method that gets executed depends on the object's actual type at runtime. This illustrates the concept of polymorphism, where the same method can have different behaviors based on the object it is called on.
+
